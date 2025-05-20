@@ -1,0 +1,20 @@
+form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+    .content-input{
+        width: 100%;
+        position: relative;
+        input, select{
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #e2e8f0;
+            height: 35px;
+            &:focus{
+                outline: none;
+                border-color: #4a5568;
+            }
+        }
+    }
+}

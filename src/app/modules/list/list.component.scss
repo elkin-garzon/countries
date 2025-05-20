@@ -1,0 +1,26 @@
+.content-table {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+
+        th {
+            background: #e2e8f0;
+            padding: 5px;
+        }
+        tr{
+            border-bottom: 1px solid #e2e8f0;
+            height: 30px;
+            &:last-child {
+                border-bottom: none;
+            }
+            td{
+                padding: 5px;
+            }
+        }
+    }
+}

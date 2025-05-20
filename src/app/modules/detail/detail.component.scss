@@ -1,0 +1,65 @@
+.country-detail {
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+
+    a.back {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 25px;
+        left: 25px;
+        border-bottom: 3px solid #8e959e;
+        border-left: 3px solid #8e959e;
+        rotate: 45deg;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .body-card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+
+
+        figure {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        article {
+            p {
+                margin-top: 5px;
+            }
+
+        }
+    }
+
+    .borders {
+        margin-top: 15px;
+
+        ul {
+            list-style: none;
+            padding: 10px 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+
+        }
+    }
+}

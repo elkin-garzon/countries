@@ -1,0 +1,25 @@
+<eg-filter [regions]="regions" (sendTextCountry)="dataCountry($event)" (sendTextRegion)="dataRegion($event)" />
+<section class="content-table">
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>region</th>
+                <th>subregion</th>
+                <th>detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of rows; track row;) {
+            <tr>
+                <td>{{ row.name.common }}</td>
+                <td>{{ row.region }}</td>
+                <td>{{ row.subregion }}</td>
+                <td>
+                    <a [routerLink]="['/detail',row.cca2]">Detail</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>

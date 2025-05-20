@@ -1,0 +1,41 @@
+@if(country){
+
+<div class="country-detail">
+    <a [routerLink]="['/']" class="back"></a>
+    <h1>{{ country.name.common }}</h1>
+    <section class="body-card">
+        <figure>
+            <img [src]="country.flags.svg" [alt]="country.flags.alt" class="flag" />
+        </figure>
+        <article>
+            <h2>General Information</h2>
+            <p><strong>Official Name:</strong> {{ country.name.official }}</p>
+            <p><strong>Capital:</strong> {{ country.capital[0] }}</p>
+            <p><strong>Region:</strong> {{ country.region }}</p>
+            <p><strong>Subregion:</strong> {{ country.subregion }}</p>
+            <p><strong>Continent:</strong> {{ country.continents[0] }}</p>
+            <p><strong>Area:</strong> {{ country.area | number }} km²</p>
+            <p><strong>Population:</strong> {{ country.population | number }}</p>
+            <p><strong>FIFA Code:</strong> {{ country.fifa }}</p>
+            <p><strong>Domain:</strong> {{ country.tld[0] }}</p>
+            <p><strong>Timezone:</strong> {{ country.timezones[0] }}</p>
+        </article>
+    </section>
+    @if(country.borders){
+    <section class="borders">
+        <h2>Bordering Countries</h2>
+        <ul>
+            @for (border of country.borders; track border) {
+            <li>
+                <a [routerLink]="['/detail',border]">{{ border }}</a>
+            </li>
+            }
+        </ul>
+    </section>
+    }
+    <section class="borders">
+        <h2>Map</h2>
+        <a [href]="country.maps.googleMaps" target="_blank">View on Google Map</a>
+    </section>
+</div>
+}

@@ -1,0 +1,9 @@
+@if(countries.length > 0){
+<ul>
+    @for (row of countries; track row;) {
+    <li>
+        <button type="button" (click)="sendData(row.name.common)">{{row.name.common}}</button>
+    </li>
+    }
+</ul>
+}

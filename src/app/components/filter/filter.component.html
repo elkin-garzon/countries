@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+    <section class="content-input">
+        <input type="text" placeholder="search country" formControlName="maskCountry" />
+        @if(form.get('country')?.valid){
+        <eg-debounce [name]="form.get('country')?.value" (countrySelect)="setCountry($event)" />
+        }
+    </section>
+    <section class="content-input">
+        <select formControlName="region">
+            <option [value]=""></option>
+            @for (row of _regions; track row;) {
+            <option [value]="row">{{row}}</option>
+            }
+
+        </select>
+    </section>
+</form>
