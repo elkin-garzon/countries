@@ -3,7 +3,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Country } from '@interfaces/index';
 import { DecimalPipe } from '@angular/common';
 import { DataCountry } from './data';
-import { CountryService } from '@services/services/country/country.service';
+import { CountryService } from '../../services/country/country.service';
 
 @Component({
 	selector: 'eg-detail',

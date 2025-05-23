@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Country } from '@interfaces/country.interface';
-import { CountryService } from '@services/services/country/country.service';
+import { CountryService } from '../../services/country/country.service';
 @Component({
 	selector: 'eg-debounce',
 	imports: [],

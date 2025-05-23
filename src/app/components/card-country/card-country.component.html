@@ -1,0 +1,12 @@
+<section class="w-full bg-gray-100 p-3 rounded-md shadow-md">
+    <h2 class="text-base font-semibold text-gray-900 dark:text-white">
+        {{ country().name.common }}
+    </h2>
+    <p class="text-sm text-gray-600 dark:text-gray-300">{{ country().region }}</p>
+    <p class="text-sm text-gray-600 dark:text-gray-300">{{ country().subregion }}</p>
+    <a
+        [routerLink]="['/detail', country().cca2]"
+        class="mt-2 text p-1 rounded-md bg-blue-600 text-white block text-center font-medium"
+        >Detail</a
+    >
+</section>

@@ -2,32 +2,25 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FilterComponent } from '@components/filter/filter.component';
 import { Country, DataForm } from '@interfaces/index';
-import { CountryService } from '@services/services/country/country.service';
-import { ObservablesService } from '@services/services/observables/observables.service';
+import { CountryService } from '../../services/country/country.service';
+import { ViewCountriesComponent } from '@components/view-countries/view-countries.component';
 
 @Component({
 	selector: 'eg-list',
 	imports: [
 		RouterModule,
-		FilterComponent
+		ViewCountriesComponent
 	],
-	templateUrl: './list.component.html',
-	styleUrl: './list.component.scss'
+	templateUrl: './list.component.html'
 })
 export class ListComponent {
 
 	private readonly service = inject(CountryService);
-	private _observables = inject(ObservablesService);
 	public rows: Country[] = [];
 	public regions: string[] = [];
 
 	ngOnInit(): void {
-		this._observables.receiptModalError.subscribe((data: boolean) => {
-			if (!data) {
-				this.getCountries();
-			}
-		});
-		this.getCountries();
+
 	}
 
 	public async getCountries() {

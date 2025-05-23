@@ -1,0 +1,27 @@
+<table class="w-full text-sm text-left text-black">
+    <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b border-gray-300"
+    >
+        <tr>
+            <th class="p-2">name</th>
+            <th class="p-2">region</th>
+            <th class="p-2">subregion</th>
+            <th class="p-2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (row of countries(); track row) {
+            <tr class="border-b border-gray-300 last:border-b-0">
+                <td class="p-2">{{ row.name.common }}</td>
+                <td class="p-2">{{ row.region }}</td>
+                <td class="p-2">{{ row.subregion }}</td>
+                <td class="p-2 text-center">
+                    <a [routerLink]="['/detail', row.cca2]" class="p-1 h-[30px] flex items-center justify-center gap-1">
+                        <span>Detail</span> 
+                        <span class="block h-[10px] w-[10px] border-t-2 border-r-2 rotate-45 border-green-950"></span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
