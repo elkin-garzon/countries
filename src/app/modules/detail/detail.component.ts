@@ -4,12 +4,13 @@ import { Country } from '@interfaces/index';
 import { DecimalPipe } from '@angular/common';
 import { DataCountry } from './data';
 import { CountryService } from '../../services/country/country.service';
+import { CardCountryComponent } from '@components/card-country/card-country.component';
 
 @Component({
 	selector: 'eg-detail',
 	imports: [
 		RouterModule,
-		DecimalPipe
+		CardCountryComponent
 	],
 	templateUrl: './detail.component.html',
 	styleUrl: './detail.component.scss'

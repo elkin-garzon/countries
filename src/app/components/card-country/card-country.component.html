@@ -1,12 +1,64 @@
-<section class="w-full bg-gray-100 p-3 rounded-md shadow-md">
-    <h2 class="text-base font-semibold text-gray-900 dark:text-white">
-        {{ country().name.common }}
-    </h2>
-    <p class="text-sm text-gray-600 dark:text-gray-300">{{ country().region }}</p>
-    <p class="text-sm text-gray-600 dark:text-gray-300">{{ country().subregion }}</p>
-    <a
-        [routerLink]="['/detail', country().cca2]"
-        class="mt-2 text p-1 rounded-md bg-blue-600 text-white block text-center font-medium"
-        >Detail</a
-    >
+<section
+    class="max-w-sm bg-white border border-gray-200 rounded-2xl shadow-md overflow-hidden relative mx-auto"
+>
+    @if (type() === 2) {
+        <a
+            class="absolute top-2 left-2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition"
+            [routerLink]="['/']"
+        >
+            <img src="/icons/arrow-left.svg" alt="back" class="w-4 h-4" />
+        </a>
+    }
+
+    <figure class="w-full">
+        <img
+            [src]="country().flags.svg"
+            [alt]="country().flags.alt"
+            class="w-full h-auto object-cover"
+        />
+    </figure>
+    <article class="p-4">
+        <h2 class="text-xl font-semibold text-gray-800">{{ country().name.common }}</h2>
+        <p class="text-gray-600">{{ country().region }}</p>
+        @if (type() === 2) {
+            <p class="text-gray-600">{{ country().subregion }}</p>
+            <p class="text-gray-600">
+                <strong class="font-medium">Capital</strong> :{{ country().capital[0] }}
+            </p>
+            <p class="text-gray-600">
+                <strong class="font-medium">Area</strong> :{{ country().area | number }}
+            </p>
+            <p class="text-gray-600">
+                <strong class="font-medium">Population</strong> :{{ country().population }}
+            </p>
+
+            @if (country().borders) {
+                <h2 class="text-gray-600 font-medium">Bordering Countries</h2>
+                <ul class="grid grid-cols-4 gap-2 mt-2">
+                    @for (border of country().borders; track border) {
+                        <li>
+                            <a
+                                class="border border-gray-400 p-1 rounded-md block text-center"
+                                [routerLink]="['/detail', border]"
+                                >{{ border }}</a
+                            >
+                        </li>
+                    }
+                </ul>
+            }
+            <section class="mt-4">
+                <a [href]="country().maps.googleMaps" target="_blank" class="mt-2 block text-center">
+                    <img src="/icons/location.svg" alt="back" class="w-8 h-8 inline-block" />
+                </a>
+            </section>
+        }
+
+        @if (type() === 1) {
+            <a
+                [routerLink]="['/detail', country().cca2]"
+                class="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition w-full block text-center mt-2"
+                >Detail</a
+            >
+        }
+    </article>
 </section>
