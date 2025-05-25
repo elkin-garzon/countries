@@ -1,11 +1,11 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Country } from '@interfaces/country.interface';
 import { CountryService } from '../../services/country/country.service';
 @Component({
 	selector: 'eg-debounce',
 	imports: [],
 	templateUrl: './debounce.component.html',
-	styleUrl: './debounce.component.scss'
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DebounceComponent {
 
@@ -29,6 +29,7 @@ export class DebounceComponent {
 
 	private async listForName() {
 		this.countries = await this.service.getByName(this._name);
+		console.log(this.countries);
 	}
 
 	public sendData(country: string) {
