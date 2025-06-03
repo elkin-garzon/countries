@@ -1,6 +1,6 @@
 name: test
 
-on: [puhs]
+on: [push]
 
 jobs:
   build-and-test:
