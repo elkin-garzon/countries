@@ -1,19 +1,23 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Country } from '@interfaces/country.interface';
 import { CountryService } from '../../services/country/country.service';
+import { StoreService } from '@services/store/store.service';
+import { CommonModule } from '@angular/common';
 @Component({
 	selector: 'eg-debounce',
-	imports: [],
+	imports: [
+		CommonModule
+	],
 	templateUrl: './debounce.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DebounceComponent {
 
 	private readonly service = inject(CountryService);
+	public readonly store = inject(StoreService);
 
 	@Input() set name(data: string) {
 		if(data.length < 3) {
-			this.countries = [];
 			return;
 
 		}
@@ -25,15 +29,12 @@ export class DebounceComponent {
 
 	@Output() countrySelect = new EventEmitter<string>();
 
-	public countries: Country[] = [];
-
 	private async listForName() {
-		this.countries = await this.service.getByName(this._name);
-		console.log(this.countries);
+		this.store.changeListcountries(await this.service.getByName(this._name));
 	}
 
 	public sendData(country: string) {
 		this.countrySelect.emit(country);
-		this.countries = [];
+		this.store.changeListcountries([]);
 	}
 }

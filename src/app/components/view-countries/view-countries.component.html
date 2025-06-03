@@ -1,9 +1,8 @@
-{{store.txtRegion()}}
 <section class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:hidden">
-    @for (country of rows; track country) {
+    @for (country of store.rowsCountries(); track country) {
         <eg-card-country [country]="country" [type]="1" />
     }
 </section>
 <section class="hidden sm:hidden md:block overflow-hidden border border-gray-300 rounded-lg">
-    <eg-table-countries [countries]="rows"/>
+    <eg-table-countries [countries]="store.rowsCountries()" />
 </section>

@@ -16,22 +16,4 @@ export class ListComponent {
     ngOnInit(): void {
     }
 
-
-    // public async dataCountry() {
-    //     let data: string = this.store.txtCountry();
-	// 	console.log(data);
-    //     if (data.length > 0) {
-	// 		debugger
-    //         this.rows = [];
-    //         this.rows = await this.service.getByName(data);
-	// 		debugger
-    //     }
-    // }
-
-    // public async dataRegion(data: string) {
-    //     if (data.length > 0) {
-    //         this.rows = [];
-    //         this.rows = await this.service.getByRegion(data);
-    //     }
-    // }
 }
